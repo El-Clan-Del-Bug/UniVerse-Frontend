@@ -81,20 +81,19 @@ export default function Enciclopedia() {
 					"Content-Type": "application/json",
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 				},
-				body: JSON.stringify({ "name": values.name, "community_id": localStorage.getItem("comunidad_ID")}),
+				body: JSON.stringify({ name: values.name, community_id: localStorage.getItem("comunidad_ID") }),
 			});
 			if (res.ok) {
 				console.log("success:", "Creado con exito");
 				alert("Creado con exito");
 				statusShowFormCrearTema();
 			} else {
-				console.log(await res.json())
+				console.log(await res.json());
 			}
 		} catch (error: any) {
 			console.error("Error:", error);
 			alert(error.message);
 		}
-        
 	};
 	const eliminar = (topic_ID: number, topic_Name: string) => {
 		topicID = topic_ID;
@@ -117,7 +116,7 @@ export default function Enciclopedia() {
 			if (res.ok) {
 				console.log("Success:", "Se ha eliminado el documento de forma correcta ");
 				alert("Se ha eliminado el documento de forma correcta");
-                newActualizacion();
+				newActualizacion();
 			} else {
 				console.error("Error:", "sucedio un error al eliminar un tema, vuelva a intentarlo");
 				alert("sucedio un error al eliminar un tema, vuelva a intentarlo");
